@@ -1,15 +1,31 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Salary {
+class SalaryIncrease {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        // Текущие зарплаты сотрудников
+        double dianaSalary = 66660;
+        double andreySalary = 77770;
+        double mariaSalary = 88880;
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+        // Процент повышения зарплаты
+        double increasePercentage = 15.0;
+
+        // Функция для расчета новой зарплаты и разницы в годовом доходе
+        calculateAndPrintSalaryIncrease("Диана", dianaSalary, increasePercentage);
+        calculateAndPrintSalaryIncrease("Андрей", andreySalary, increasePercentage);
+        calculateAndPrintSalaryIncrease("Мария", mariaSalary, increasePercentage);
+    }
+
+    public static void calculateAndPrintSalaryIncrease(String name, double currentSalary, double increasePercentage) {
+        // Расчет новой зарплаты
+        double newSalary = currentSalary * (1 + increasePercentage / 100);
+
+        // Расчет годового дохода до и после повышения
+        double currentAnnualIncome = currentSalary * 12;
+        double newAnnualIncome = newSalary * 12;
+
+        // Расчет разницы в годовом доходе
+        double incomeDifference = newAnnualIncome - currentAnnualIncome;
+
+        // Вывод информации
+        System.out.printf("%s теперь получает %.2f рублей. Годовой доход вырос на %.2f рублей.\n", name, newSalary, incomeDifference);
     }
 }
